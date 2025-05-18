@@ -4,12 +4,21 @@
   "description": "hello world smart contract",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "npx hardhat test",
+    "compile": "npx hardhat compile",
+    "deploy": "npx hardhat run scripts/deploy.js --network sepolia",
+    "deploy:local": "npx hardhat run scripts/deploy.js --network hardhat",
+    "deploy:sepolia": "npx hardhat run scripts/deploy-sepolia.js --network sepolia",
+    "interact": "npx hardhat run scripts/interact.js --network sepolia",
+    "interact:local": "npx hardhat run scripts/interact.js --network hardhat",
+    "setup": "cp .env && echo '\nPlease edit .env file with your values and run: npm run deploy:sepolia'"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@nomicfoundation/hardhat-verify": "^2.0.13",
     "@nomiclabs/hardhat-ethers": "^2.2.3",
+    "@nomiclabs/hardhat-etherscan": "^3.1.8",
     "@openzeppelin/contracts": "^5.3.0",
     "chai": "^5.2.0",
     "ethers": "^5.8.0",
